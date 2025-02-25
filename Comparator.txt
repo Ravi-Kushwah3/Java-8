@@ -1,0 +1,55 @@
+1️⃣ Comparator in Java
+
+A Comparator in Java is used to define custom sorting logic for objects. It is a functional interface in java.util package and contains a single method:
+
+int compare(T o1, T o2);
+
+It is used when:
+
+    Sorting objects based on multiple fields.
+    Sorting in descending order.
+    Custom sorting requirements.
+
+Example: Sorting Employees by Salary and Name
+
+import java.util.*;
+
+class Employee {
+    String name;
+    double salary;
+
+    Employee(String name, double salary) {
+        this.name = name;
+        this.salary = salary;
+    }
+
+    @Override
+    public String toString() {
+        return name + " - $" + salary;
+    }
+}
+
+public class ComparatorExample {
+    public static void main(String[] args) {
+        List<Employee> employees = Arrays.asList(
+                new Employee("Rahul", 50000),
+                new Employee("Ravi", 70000),
+                new Employee("Amit", 60000)
+        );
+
+        // Sorting by Salary (Ascending)
+        employees.sort(Comparator.comparingDouble(emp -> emp.salary));
+
+        System.out.println("Sorted by Salary (Ascending): " + employees);
+
+        // Sorting by Name (Alphabetical)
+        employees.sort(Comparator.comparing(emp -> emp.name));
+
+        System.out.println("Sorted by Name (Alphabetical): " + employees);
+
+        // Sorting by Salary (Descending)
+        employees.sort(Comparator.comparingDouble(emp -> emp.salary).reversed());
+
+        System.out.println("Sorted by Salary (Descending): " + employees);
+    }
+}
