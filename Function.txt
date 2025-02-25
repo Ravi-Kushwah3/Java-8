@@ -1,0 +1,38 @@
+2️⃣ Function in Java (java.util.function.Function)
+
+The Function interface represents a function that accepts one argument and produces a result.
+
+@FunctionalInterface
+public interface Function<T, R> {
+    R apply(T t);
+}
+
+Use Cases
+
+    Converting objects from one type to another.
+    Performing calculations on input values.
+
+Example: Converting Employee Salary to Annual Salary
+
+import java.util.function.Function;
+
+class Employee {
+    String name;
+    double salary;
+
+    Employee(String name, double salary) {
+        this.name = name;
+        this.salary = salary;
+    }
+}
+
+public class FunctionExample {
+    public static void main(String[] args) {
+        Employee emp = new Employee("John", 5000);
+
+        // Function to calculate annual salary
+        Function<Employee, Double> annualSalary = e -> e.salary * 12;
+
+        System.out.println("Annual Salary of " + emp.name + ": $" + annualSalary.apply(emp));
+    }
+}
