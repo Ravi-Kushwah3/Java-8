@@ -68,17 +68,15 @@ public class ArrayTest01 {
 
 		for (int i = 0; i < arr.length; i++) {
 			int freq = 0;
-			boolean flag = false;
 			for (int j = 0; j < arr.length; j++) {
 				if (arr[i] == arr[j]) {
 					freq++;
 				}
 				if (freq == 2) {
-					flag = true;
 					break;
 				}
 			}
-			if (freq == 1 && !flag) {
+			if (freq == 1) {
 				uniqueNumList.add(arr[i]);
 			}
 		}
