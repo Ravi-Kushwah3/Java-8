@@ -68,16 +68,16 @@ public class ArrayTest01 {
 
 		int arr[] = { 2, 5, 20, 7, 1, 3, 10, 5, 3 ,-8,-1};
 
-		int max = ArrayTest01.findBiggestNumber(arr);
+		int max = findBiggestNumber(arr);
 		System.out.println("Biggest number : " + max + "\n______________________");
 
-		int min = ArrayTest01.findSmallestNumber(arr);
+		int min = findSmallestNumber(arr);
 		System.out.println("\nSmallest number : " + min + "\n______________________");
 
-		List<Integer> dupList = ArrayTest01.findDuplicateNumber(arr);
+		List<Integer> dupList = findDuplicateNumber(arr);
 		System.out.println("\nDuplicate numbers : " + Arrays.toString(dupList.toArray()) + "\n______________________");
 
-		List<Integer> removeList = ArrayTest01.removeDuplicate(arr);
+		List<Integer> removeList = removeDuplicate(arr);
 		System.out.println("\nDuplicate numbers : " + Arrays.toString(removeList.toArray()));
 
 	}
