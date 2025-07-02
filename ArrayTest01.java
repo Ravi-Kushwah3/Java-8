@@ -63,6 +63,27 @@ public class ArrayTest01 {
 		}
 		return removeList;
 	}
+	private static List<Integer> uniqueNumbers(int[] arr) {
+		List<Integer> uniqueNumList = new ArrayList<Integer>();
+
+		for (int i = 0; i < arr.length; i++) {
+			int freq = 0;
+			boolean flag = false;
+			for (int j = 0; j < arr.length; j++) {
+				if (arr[i] == arr[j]) {
+					freq++;
+				}
+				if (freq == 2) {
+					flag = true;
+					break;
+				}
+			}
+			if (freq == 1 && !flag) {
+				uniqueNumList.add(arr[i]);
+			}
+		}
+		return uniqueNumList;
+	}
 
 	public static void main(String[] args) {
 
@@ -78,7 +99,10 @@ public class ArrayTest01 {
 		System.out.println("\nDuplicate numbers : " + Arrays.toString(dupList.toArray()) + "\n______________________");
 
 		List<Integer> removeList = removeDuplicate(arr);
-		System.out.println("\nDuplicate numbers : " + Arrays.toString(removeList.toArray()));
+		System.out.println("\nDuplicate numbers : " + Arrays.toString(removeList.toArray())+ "\n______________________");
+
+		List<Integer> uniqueList = uniqueNumbers(arr);
+		System.out.println("\n Unique numbers : " + Arrays.toString(uniqueList.toArray()));
 
 	}
 
